@@ -133,13 +133,13 @@ static int pdo_pgsqlsw_fetch_error_func(pdo_dbh_t *dbh, pdo_stmt_t *stmt, zval *
 /* }}} */
 
 /* {{{ pdo_pgsqlsw_create_lob_stream */
-static size_t pgsqlsw_lob_write(php_stream *stream, const char *buf, size_t count)
+static ssize_t pgsqlsw_lob_write(php_stream *stream, const char *buf, size_t count)
 {
 	struct pdo_pgsqlsw_lob_self *self = (struct pdo_pgsqlsw_lob_self*)stream->abstract;
 	return lo_write(self->conn, self->lfd, (char*)buf, count);
 }
 
-static size_t pgsqlsw_lob_read(php_stream *stream, char *buf, size_t count)
+static ssize_t pgsqlsw_lob_read(php_stream *stream, char *buf, size_t count)
 {
 	struct pdo_pgsqlsw_lob_self *self = (struct pdo_pgsqlsw_lob_self*)stream->abstract;
 	return lo_read(self->conn, self->lfd, buf, count);

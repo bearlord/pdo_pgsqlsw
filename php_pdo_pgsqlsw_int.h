@@ -76,11 +76,11 @@ typedef struct {
 #if PHP_VERSION_ID < 70300
 extern pdo_driver_t pdo_pgsqlsw_driver;
 extern struct pdo_stmt_methods pgsqlsw_stmt_methods;
-extern php_stream_ops pdo_pgsql_lob_stream_ops;
+extern php_stream_ops pdo_pgsqlsw_lob_stream_ops;
 #else
 extern const pdo_driver_t pdo_pgsqlsw_driver;
 extern const struct pdo_stmt_methods pgsqlsw_stmt_methods;
-extern const php_stream_ops pdo_pgsql_lob_stream_ops;
+extern const php_stream_ops pdo_pgsqlsw_lob_stream_ops;
 #endif
 
 
@@ -112,5 +112,6 @@ enum pdo_pgsqlsw_specific_constants {
 };
 
 php_stream *pdo_pgsqlsw_create_lob_stream(zval *pdh, int lfd, Oid oid);
+extern const php_stream_ops pdo_pgsqlsw_lob_stream_ops;
 
-#endif /* PHP_PDO_TAOSW_INT_H */
+#endif /* PHP_PDO_PGSQLSW_INT_H */

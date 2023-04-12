@@ -38,6 +38,8 @@ extern "C" {
 #include "80100/pgsqlsw_statement.cc"
 #elif PHP_VERSION_ID >= 80000
 #include "80000/pgsqlsw_statement.cc"
+#elif PHP_VERSION_ID >= 70400
+#include "70400/pgsqlsw_statement.cc"
 #elif PHP_VERSION_ID >= 70300
 #include "70300/pgsqlsw_statement.cc"
 #elif PHP_VERSION_ID >= 70000
