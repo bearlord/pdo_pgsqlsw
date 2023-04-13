@@ -13,7 +13,7 @@ if test "$PHP_PDO_PGSQLSW" != "no"; then
   PHP_EXPAND_PATH($PGSQL_INCLUDE, PGSQL_INCLUDE)
 
   AC_MSG_CHECKING(for pg_config)
-  for i in $PHP_PDO_PGSQL $PHP_PDO_PGSQL/bin /usr/local/pgsql/bin /usr/local/bin /usr/bin ""; do
+  for i in $PHP_PDO_PGSQLSW $PHP_PDO_PGSQLSW/bin /usr/local/pgsql/bin /usr/local/bin /usr/bin ""; do
     if test -x $i/pg_config; then
       PG_CONFIG="$i/pg_config"
       break;
@@ -26,10 +26,10 @@ if test "$PHP_PDO_PGSQLSW" != "no"; then
     PGSQL_LIBDIR=`$PG_CONFIG --libdir`
   else
     AC_MSG_RESULT(not found)
-    if test "$PHP_PDO_PGSQL" = "yes"; then
+    if test "$PHP_PDO_PGSQLSW" = "yes"; then
       PGSQL_SEARCH_PATHS="/usr /usr/local /usr/local/pgsql"
     else
-      PGSQL_SEARCH_PATHS=$PHP_PDO_PGSQL
+      PGSQL_SEARCH_PATHS=$PHP_PDO_PGSQLSW
     fi
 
     for i in $PGSQL_SEARCH_PATHS; do
@@ -60,7 +60,7 @@ if test "$PHP_PDO_PGSQLSW" != "no"; then
     AC_MSG_ERROR([Unable to find libpq anywhere under $PGSQL_SEARCH_PATHS])
   fi
 
-  AC_DEFINE(HAVE_PDO_PGSQL,1,[Whether to build PostgreSQL for PDO support or not])
+  AC_DEFINE(HAVE_PDO_PGSQLSW,1,[Whether to build PostgreSQL for PDO support or not])
 
   old_LIBS=$LIBS
   old_LDFLAGS=$LDFLAGS
@@ -71,8 +71,8 @@ if test "$PHP_PDO_PGSQLSW" != "no"; then
   LIBS=$old_LIBS
   LDFLAGS=$old_LDFLAGS
 
-  PHP_ADD_LIBRARY_WITH_PATH(pq, $PGSQL_LIBDIR, PDO_PGSQL_SHARED_LIBADD)
-  PHP_SUBST(PDO_PGSQL_SHARED_LIBADD)
+  PHP_ADD_LIBRARY_WITH_PATH(pq, $PGSQL_LIBDIR, PDO_PGSQLSW_SHARED_LIBADD)
+  PHP_SUBST(PDO_PGSQLSW_SHARED_LIBADD)
 
   PHP_ADD_INCLUDE($PGSQL_INCLUDE)
 

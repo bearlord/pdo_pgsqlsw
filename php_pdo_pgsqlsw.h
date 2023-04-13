@@ -15,17 +15,18 @@
   +----------------------------------------------------------------------+
 */
 
-#ifndef PHP_PDO_TAOSW_H
-# define PHP_PDO_TAOSW_H
+#ifndef PHP_PDO_PGSQLSW_H
+# define PHP_PDO_PGSQLSW_H
 
-extern zend_module_entry pdo_taosw_module_entry;
+extern zend_module_entry pdo_pgsqlsw_module_entry;
 # define phpext_pdo_pgsqlsw_ptr &pdo_pgsqlsw_module_entry
 
-# define PHP_PDO_TAOSW_VERSION "0.0.1"
+# define PHP_PDO_PGSQLSW_VERSION "0.0.1"
 
-# if defined(ZTS) && defined(COMPILE_DL_PDO_TAOSW)
+# if defined(ZTS) && defined(COMPILE_DL_PDO_PGSQLSW)
 ZEND_TSRMLS_CACHE_EXTERN()
 # endif
+
 
 PHP_MINIT_FUNCTION(pdo_pgsqlsw);
 PHP_MSHUTDOWN_FUNCTION(pdo_pgsqlsw);

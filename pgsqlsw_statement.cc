@@ -27,12 +27,13 @@ extern "C" {
     #include "pdo/php_pdo_driver.h"
     #include "php_pdo_pgsqlsw.h"
     #include "php_pdo_pgsqlsw_int.h"
+    #if HAVE_NETINET_IN_H
+    #include <netinet/in.h>
+    #endif
 }
 #include "swoole_coroutine.h"
 
-#if HAVE_NETINET_IN_H
-#include <netinet/in.h>
-#endif
+
 
 #if PHP_VERSION_ID >= 80100
 #include "80100/pgsqlsw_statement.cc"

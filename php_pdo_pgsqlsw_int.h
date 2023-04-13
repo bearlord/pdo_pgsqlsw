@@ -15,8 +15,8 @@
   +----------------------------------------------------------------------+
 */
 
-#ifndef PHP_PDO_TAOSW_INT_H
-#define PHP_PDO_TAOSW_INT_H
+#ifndef PHP_PDO_PGSQLSW_INT_H
+#define PHP_PDO_PGSQLSW_INT_H
 
 #include <libpq-fe.h>
 #include <libpq/libpq-fs.h>

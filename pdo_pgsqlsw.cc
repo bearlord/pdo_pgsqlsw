@@ -111,13 +111,13 @@ zend_module_entry pdo_pgsqlsw_module_entry = {
     NULL,
     NULL,
     PHP_MINFO(pdo_pgsqlsw),
-    PHP_PDO_TAOSW_VERSION,
+    PHP_PDO_PGSQLSW_VERSION,
     STANDARD_MODULE_PROPERTIES
 };
 /* }}} */
 
 
-#ifdef COMPILE_DL_PDO_TAOSW
+#ifdef COMPILE_DL_PDO_PGSQLSW
 # ifdef ZTS
 ZEND_TSRMLS_CACHE_DEFINE()
 # endif
