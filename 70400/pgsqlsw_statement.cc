@@ -582,7 +582,7 @@ static int pgsqlsw_stmt_get_col(pdo_stmt_t *stmt, int colno, char **ptr, size_t 
 					}
 					if (!tmp_len) {
 						/* Empty string, return as empty stream */
-                        *ptr = (char *)php_stream_memory_open(TEMP_STREAM_READONLY, "", 0);
+                        *ptr = (char *)php_stream_memory_open(TEMP_STREAM_READONLY, (char *)"", 0);
 						PQfreemem(tmp_ptr);
 						*len = 0;
 					} else {
