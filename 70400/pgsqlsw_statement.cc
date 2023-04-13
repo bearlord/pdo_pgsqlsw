@@ -582,7 +582,7 @@ static int pgsqlsw_stmt_get_col(pdo_stmt_t *stmt, int colno, char **ptr, size_t 
 					}
 					if (!tmp_len) {
 						/* Empty string, return as empty stream */
-                        *ptr = (char *)php_stream_memory_open(TEMP_STREAM_READONLY, (char *)"", 0);
+                        *ptr = (char *)php_stream_memory_open(TEMP_STREAM_READONLY, tmp_ptr, 0);
 						PQfreemem(tmp_ptr);
 						*len = 0;
 					} else {
@@ -715,7 +715,7 @@ static int pdo_pgsqlsw_stmt_cursor_closer(pdo_stmt_t *stmt)
 	return 1;
 }
 
-const struct pdo_stmt_methods pgsql_stmt_methods = {
+const struct pdo_stmt_methods pgsqlsw_stmt_methods = {
 	pgsqlsw_stmt_dtor,
 	pgsqlsw_stmt_execute,
 	pgsqlsw_stmt_fetch,

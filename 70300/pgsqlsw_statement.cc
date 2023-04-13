@@ -715,7 +715,7 @@ static int pdo_pgsql_stmt_cursor_closer(pdo_stmt_t *stmt)
 	return 1;
 }
 
-const struct pdo_stmt_methods pgsql_stmt_methods = {
+const struct pdo_stmt_methods pgsqlsw_stmt_methods = {
 	pgsql_stmt_dtor,
 	pgsql_stmt_execute,
 	pgsql_stmt_fetch,
